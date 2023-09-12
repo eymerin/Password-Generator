@@ -12,6 +12,12 @@ Project files may be downloaded from https://github.com/eymerin/Password-Generat
 
 generating random passwords
 
+https://eymerin.github.io/Password-Generator/
+
+    ```md
+    ![alt text](assets/images/AppExample.jpg)
+    ```
+
 ## Credits
 
 Information was also used from the github documentation site:
