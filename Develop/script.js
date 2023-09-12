@@ -9,6 +9,7 @@ var password = "";
 var passLength = "";
 
 function generatePassword() {
+  password = ""
   getLength();
   getLower();
   getUpper();
@@ -28,7 +29,7 @@ function getLength() {
     window.alert("Length must be at least 8 and no higher than 128! Please try again!");
     getLength();
   } else {
-    var passLength = userLength;
+    passLength = userLength;
     console.log(passLength);
     return passLength;
   }
@@ -40,9 +41,9 @@ function getLower() {
       console.log(lowerChoice);
       return;
     } else if(lowerChoice == "y") {
-      possibleChar.push(lowerCase);
+      possibleChar = possibleChar.concat(lowerCase);
       console.log(lowerChoice);
-      return;
+      return lowerChoice;
     } else {
       window.alert("Enter y for yes and n for no, please try again!");
       console.log(lowerChoice);
@@ -56,9 +57,9 @@ function getUpper() {
       console.log(upperChoice);
       return
     } else if(upperChoice == "y") {
-      possibleChar.push(upperCase);
+      possibleChar = possibleChar.concat(upperCase);
       console.log(upperChoice);
-      return;
+      return upperChoice;
     } else {
       window.alert("Enter y for yes and n for no, please try again!");
       console.log(upperChoice);
@@ -72,7 +73,7 @@ function getNumeric() {
       console.log(numericChoice);
       return;
     } else if(numericChoice == "y") {
-      possibleChar.push(numeric);
+      possibleChar = possibleChar.concat(numeric);
       console.log(numericChoice);
       return;
     } else {
@@ -86,7 +87,8 @@ function getSpecial() {
     if (specialChoice == "n") {
       return;
     } else if(specialChoice == "y") {
-      possibleChar.push(specialChar);
+      possibleChar = possibleChar.concat(specialChar);
+      console.log(possibleChar);
       window.alert("password");
       return;
     } else {
@@ -98,8 +100,8 @@ function getSpecial() {
 function getRandom() {
   for (let i = 0; i < passLength; i++) {
     let passwordChar = Math.floor(Math.random()*possibleChar.length);
-    password += passwordChar;
-    console.log(passwordChar);
+    password += possibleChar[passwordChar];
+    console.log(possibleChar[passwordChar]);
   }
   console.log(password);
   return password;
